@@ -24,8 +24,17 @@ def binSearch1(A, t):
         else:
             l = m + 1
     return l
-A=[0,1,2,3]
-binSearch1(A, 10000)
+
+
+# Now let's try some examples:
+A = [0, 1, 1, 2]
+binSearch1(A, -1) # returns 0
+binSearch1(A, 0) # returns 0
+binSearch1(A, .5) # returns 1
+binSearch1(A, 1) # returns 1
+binSearch1(A, 1.5) # returns 3
+binSearch1(A, 2) # returns 3
+binSearch1(A, 2.1) # returns 4
 
 def binSearch2(A, t):
     """
@@ -45,5 +54,13 @@ def binSearch2(A, t):
         else:
             r = m - 1
     return r
-A = [0, 1, 2, 3]
-binSearch2(A, -.1)
+
+# Again, let's try some examples:
+A = [0, 1, 1, 2]
+binSearch2(A, -1) # returns -1
+binSearch2(A, 0) # returns 0
+binSearch2(A, .5) # returns 0
+binSearch2(A, 1) # returns 2
+binSearch2(A, 1.5) # returns 2
+binSearch2(A, 2) # returns 3
+binSearch2(A, 2.1) # returns 3
