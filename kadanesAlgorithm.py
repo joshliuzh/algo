@@ -38,3 +38,27 @@ A = [-1, 1, -1, 3]
 B = [1, -2, 4, -8, 16, -32, 64]
 kadane(A) # returns 3, 4, 4
 kadane(B) # returns 6, 7, 64
+
+
+def kadaneRecursive(A):
+    """
+    Kadane's algorithm using recursive methods. Return the max sum of a subarray.
+    WARNING: easy to result in time out error. The iterative method is better.
+    """
+    if len(A) == 0:
+        return 0
+    maxSum = [-float('inf')]
+        
+    def dfs(array, maxSum):
+        if len(array) == 0:
+            maxSum = 0
+            return 0
+            
+        n = len(array)
+        array[n - 1] = max(array[n - 1], array[n - 1] + dfs(array[: n - 1], maxSum))
+        maxSum[-1] = max(maxSum[-1], array[n - 1])
+        return array[n - 1]
+        
+    dfs(A, maxSum)
+    return maxSum[0]
+kadaneRecursive(B)
