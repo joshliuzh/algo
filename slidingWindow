@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jul 29 09:45:50 2021
+
+@author: liuzhao
+"""
+import collections
+def lengthOfLongestSubstringKDistinct(arr, k) -> int:
+"""
+Using sliding window, return the length of the longest subarray with at most k distinct elements.
+"""
+
+    l, r = 0, 0
+    out = 0
+    mapping = collections.defaultdict(int)
+        
+    while r < len(arr):
+        mapping[arr[r]] += 1
+        r += 1
+        while len(mapping) > k:
+            mapping[arr[l]] -= 1
+            if mapping[arr[l]] == 0:
+                del mapping[arr[l]]
+            l += 1
+        out = max(out, r - l)
+    return out
+                
