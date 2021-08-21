@@ -17,7 +17,7 @@ def kadane(A):
     if not A:
         return -1, -1
     starting, ending = 0, 1
-    curr_start = 0, 1
+    curr_start = 0
     currMax   = A[0]
     globalMax = currMax
     for i in range(1, n):
