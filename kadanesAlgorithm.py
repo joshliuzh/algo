@@ -18,8 +18,8 @@ def kadane(A):
         return -1, -1
     starting, ending = 0, 1
     curr_start = 0, 1
-    globalMax = A[0]
     currMax   = A[0]
+    globalMax = currMax
     for i in range(1, n):
         #print(A[i])
         if currMax < 0:
