@@ -6,14 +6,15 @@ Created on Tue Jul 27 21:15:57 2021
 @author: liuzhao
 """
 
-uf =   {a: a for a in string.ascii_lowercase}
-def find(t):
-    global uf
-    if uf[t] != t:
-        uf[t] = find(uf[t])
-    return uf[t]
-def union(u, v):
-    global uf
-    u, v = find(u), find(v)
-    if u != v:
-        uf[u] = find(v)
+class UnionFind:
+    
+    def __init__(self, n): 
+        self.root = list(range(n))
+    
+    def union(self, x, y): 
+        self.root[self.find(x)] = self.find(y)
+    
+    def find(self, x):
+        if x != self.root[x]: 
+            self.root[x] = self.find(self.root[x])
+        return self.root[x]
