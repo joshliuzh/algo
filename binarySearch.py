@@ -48,7 +48,7 @@ def binSearch2(A, t):
   
     l, r = -1, len(A) - 1
     while l < r:
-        m = (l + r) // 2 + (l + r) % 2 # difference (1)
+        m = (l + r + 1) // 2  # difference (1)
         if A[m] <= t:
             l = m
         else:
