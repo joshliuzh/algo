@@ -11,6 +11,44 @@ def bubbleSort(arr):
 nums = [5, 3, 7, 1, 9, 3]
 bubbleSort(nums)
 
+########
+########
+########
+
+def insertionSort(arr):
+    n = len(arr)
+    for i in range(1, n):
+        j = i
+        while j > 0 and arr[j] <= arr[j - 1]:
+            arr[j], arr[j - 1] = arr[j - 1], arr[j]
+            j -= 1
+    return arr
+nums = [5, 3, 7, 1, 9, 3]
+insertionSort(nums)
+
+########
+########
+########
+
+
+def selectionSort(arr):
+    n = len(arr)
+    for j in range(n - 1, 0, -1):
+        maximum = arr[j]
+        maxIdx = j
+        for i in range(j):
+            if arr[i] > maximum:
+                maximum = arr[i]
+                maxIdx = i
+        arr[j], arr[maxIdx] = arr[maxIdx], arr[j]
+    return arr
+nums = [5, 3, 7, 1, 9, 3]
+selectionSort(nums)
+
+########
+########
+########
+
 
 def mergeSort(arr):
     if len(arr) <= 1:
@@ -27,21 +65,9 @@ def mergeSort(arr):
 nums = [4, 2, 3, 8, 5, 9, 10000, 0]
 mergeSort(nums)
 
-
-
-def selectionSort(arr):
-    n = len(arr)
-    for j in range(n - 1, 0, -1):
-        maximum = arr[j]
-        maxIdx = j
-        for i in range(j):
-            if arr[i] > maximum:
-                maximum = arr[i]
-                maxIdx = i
-        arr[j], arr[maxIdx] = arr[maxIdx], arr[j]
-    return arr
-nums = [5, 3, 7, 1, 9, 3]
-selectionSort(nums)
+########
+########
+########
 
 def quickSort(arr):
     n = len(arr)
