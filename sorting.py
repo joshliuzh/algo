@@ -82,5 +82,45 @@ def quickSort(arr):
 nums = [5, 3, 7, 1, 9, 3]
 quickSort(nums)
 
+########
+########
+########
 
+def countingSort(arr):
+    maximum = max(arr)
+    newArr = [0] * (maximum + 1)
+    for item in arr:
+        newArr[item] += 1
+    for i in range(maximum):
+        newArr[i + 1] += newArr[i]
+    result = [-1] * (maximum + 1)
+    for item in arr[::-1]:
+        result[newArr[item]] = item
+        newArr[item] -= 1
+    return list(filter(lambda t: t >= 0, result))
+nums = [5, 3, 7, 1, 9, 3]
+countingSort(nums)
 
+########
+########
+########
+
+def radixSort(arr):
+    countSort = [[] for _ in range(10)]
+    isSorted = False
+    powerOfTen = 0
+    while not isSorted:
+        isSorted = True
+        
+        for _ in range(len(arr)):
+            item = arr.pop(0)
+            if item >= 10 ** powerOfTen:
+                isSorted = False
+            digit = item // 10 ** powerOfTen % 10
+            countSort[digit].append(item)
+        arr = [item for lst in countSort for item in lst]
+        countSort = [[] for _ in range(10)]
+        powerOfTen += 1
+    return arr
+nums = [897, 53, 762, 18, 3810, 4, 10]
+radixSort(nums)
