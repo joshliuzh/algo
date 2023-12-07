@@ -8,12 +8,14 @@ Created on Sat Jul 17 15:45:57 2021
 
 def searchRight(nums, target):
     """
-    Binary search that returns the minimum index i, such that A[i] >= target. If no such element exists, return N, the length of A.
+    Binary search that returns the minimum index i, such that A[i] >= target. If no such element exists, including if nums is empty, return N, the length of A.
     Input: A, a list of elements to be searched. MUST BE sorted in ascending order.
             t: target;
             
     Returns: an integer
     """
+    if not nums:
+        return 0
     lo, hi = 0, len(nums) - 1
     while lo <= hi:
         mid = (lo + hi)//2
@@ -36,13 +38,14 @@ print(searchRight(A, 20)) # returns 5
 
 def searchLeft(nums, target):
     """
-    Binary search that returns the maximum index i, such that A[i] <= target. If no such element exists, return -1.
+    Binary search that returns the maximum index i, such that A[i] <= target. If no such element exists, including if nums is empty, return -1.
     Input: A, a list of elements to be searched. MUST BE sorted in ascending order.
             t: target;
             
     Returns: an integer
     """
-    
+    if not nums:
+        return -1
     lo, hi = 0, len(nums) - 1
     while lo <= hi:
         mid = (lo + hi)//2
