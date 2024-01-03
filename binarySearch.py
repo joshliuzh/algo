@@ -13,6 +13,7 @@ def searchRight(nums, target):
             t: target;
             
     Returns: an integer
+    Equivalent to bisect.bisect_left
     """
     if not nums:
         return 0
@@ -43,6 +44,7 @@ def searchLeft(nums, target):
             t: target;
             
     Returns: an integer
+    Equivalent to bisect.bisect_right
     """
     if not nums:
         return -1
