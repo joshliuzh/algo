@@ -17,9 +17,16 @@ def find(x):
 
 def union(x, y):
 
-    nonlocal parent
-    if xr == yr:
+    nonlocal parent, rank
 
-    rx, ry = find(x), find(y)
-        if rx != ry:
-    parent[rx] = ry
+    rankx, ranky = find(x), find(y)
+    if xr == yr:
+        return
+    if rankx < ranky:
+        parent[xr] = yr
+    else if rankx > ranky:
+        parent[yr] = xr
+    else:
+        parent[yr] = xr
+        rank[xr] += 1
+        
