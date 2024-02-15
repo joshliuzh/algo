@@ -17,16 +17,15 @@ class Traversal:
         
     stack = [root]
     output = []
-    while stack or root:
-        root = stack.pop()
-        if root is not None:
-            output.append(root.val)
-            if root.right is not None:
-                stack.append(root.right)
-            if root.left is not None:
-                stack.append(root.left)
-        
-        return output
+    while stack:
+      node = stack.pop()
+      output.append(node.val)
+      if node.right:
+        stack.append(node.right)
+      if node.left:
+        stack.append(node.left)
+            
+    return output
   
   def postorder(root):
     if root is None:
