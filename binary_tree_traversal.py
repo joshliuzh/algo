@@ -28,18 +28,20 @@ class Traversal:
     return output
   
   def postorder(root):
-    if root is None:
-        return []
+      if not root:
+          return []
+      output = []
         
-    stack = [root]
-    output = []
-    while stack or root:
-        root = stack.pop()
-        if root is not None:
-            output.append(root.val)
-            if root.left is not None:
-                stack.append(root.left)
-            if root.right is not None:
-                stack.append(root.right)
+      stack = [root]
         
-        return output      
+      while stack:
+            
+          node = stack.pop()
+          output.append(node.val)
+            
+          if node.left:
+              stack.append(node.left)
+            
+          if node.right:
+              stack.append(node.right)
+      return output[::-1]
