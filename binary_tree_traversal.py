@@ -1,16 +1,16 @@
 # Iteratively traverse binary trees
 class Traversal:
   def inorder(root):
-    if not root:
-      return None
-      while stack or root:
-          while root:
-              stack.append(root)
-              root = root.left
-          root = stack.pop()
-          print(root.val)
-          root = root.right
-
+        stack = []
+        curr = root
+        while curr or stack:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
+            curr = stack.pop()
+            output.append(curr.val)
+            curr = curr.right
+        return output
   def preorder(root):
     if root is None:
         return []
