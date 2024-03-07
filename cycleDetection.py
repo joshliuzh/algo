@@ -4,7 +4,7 @@ class Solution:
     	def buildAdjacencyList(self, n, edgesList):
     		...
     		
-        def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        def isAcyclic(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
             # build Adjacency list from Edges list
             adjList = self.buildAdjacencyList(numCourses, prerequisites)
     
@@ -45,7 +45,7 @@ class Solution:
         def buildAdjacencyList(self, n, edgesList):
             ...
     
-        def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        def isAcyclic(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
             # build Adjacency list from Edges list
             adjList = self.buildAdjacencyList(numCourses, prerequisites)
             visited = set()
