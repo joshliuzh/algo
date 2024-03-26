@@ -19,7 +19,7 @@ def union(x, y):
 
     nonlocal parent, rank
 
-    rankx, ranky = find(x), find(y)
+    xr, yr = find(x), find(y)
     if xr == yr:
         return
     if rankx < ranky:
