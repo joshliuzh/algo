@@ -22,11 +22,11 @@ def union(x, y):
     xr, yr = find(x), find(y)
     if xr == yr:
         return
+    rankx, ranky = rank[x], rank[y]
     if rankx < ranky:
         parent[xr] = yr
-    else if rankx > ranky:
-        parent[yr] = xr
+
     else:
         parent[yr] = xr
-        rank[xr] += 1
+        rank[xr] += rankx == ranky
         
