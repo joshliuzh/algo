@@ -33,3 +33,10 @@ class UnionFind:
                 self.size[root_x] += self.size[root_y]
             return True # Successfully merged
         return False # Already in the same set
+
+    def get_set_size(self, x):
+        """Returns the total number of elements in the set containing x."""
+        root = self.find(x)
+        return self.size[root]
+
+
